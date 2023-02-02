@@ -4,3 +4,39 @@
     box-sizing: border-box;
 }
 
+:root {
+    --color-body-bg: #ffffff;
+    --color-body-text: #333333;
+    --color-body-accent: #0D0D0D; /* Maybe #111111 if not */
+    --font-body-text: 'DM Sans', sans-serif;
+    --font-weight-body: 400;
+    --font-weight-body-medium: 500;
+    --font-weight-body-bold: 700;
+}
+
+body, html {
+    font-family: var(--font-body-text);
+}
+
+body {
+    background-color: var(--color-body-bg);
+    color: var(--color-body-text);
+    display: grid;
+    justify-content: center;
+}
+
+.main-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: aqua;
+}
+
+.header {
+    grid-column: 1 / -1;
+}
+
+.calc-container, .results-container {
+    background-color: red;
+    height: 100px;
+    width: 100px;
+}
