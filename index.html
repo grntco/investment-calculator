@@ -21,13 +21,48 @@
         <div class="quote-container">
           <p class="quote" id="quote">
             “All the returns in life, whether in wealth, relationships, or
-            knowledge, come from compound interest. This is more of the quote, what does it mean, what does it say, what does it want.”
+            knowledge, come from compound interest.”
           </p>
           <div class="author" id="author">– <span>Naval Ravikant</span></div>
         </div>
       </div>
       <div class="main-content">
         <div class="calc-container">
+          <form>
+            <h2>Inputs</h2>
+            <fieldset>
+              <ul class="inputs-container">
+                <li class="input-item">
+                  <label for="principal">Starting Amount:</label>
+                  <input type="number" name="principal" id="principal" max="100000000" required />
+                </li>
+                <li class="input-item">
+                  <label for="rate">Annual Return:</label>
+                  <input type="number" name="rate" id="rate" max="1000" required />
+                </li>
+                <li class="input-item">
+                  <label for="contributions">Contribution Amount:</label>
+                  <input type="number" name="contributions" id="contributions" max="100000000" required />
+                </li>
+                <li class="input-item">
+                  <label for="compound">Compound:</label>
+                  <select name="compound" id="compound" required>
+                    <option value="">Annually</option>
+                    <option value="12">Quarterly</option>
+                    <option value="">Monthly</option>
+                    <option value="">Biweekly</option>
+                    <option value="">Weekly</option>
+                    <option value="">Daily</option>
+                    <option value="">Continuosly</option>
+                  </select>
+                </li>
+                <li class="input-item">
+                  <label for="time">Time (in years):</label>
+                  <input type="number" name="time" id="time" max="100" required />
+                </li>
+              </ul>
+            </fieldset>
+          </form>
         </div>
         <div class="results-container"></div>
       </div>

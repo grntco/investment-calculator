@@ -32,7 +32,7 @@ body {
 .main-container {
     display: grid;
     grid-template-rows: min-content 1fr; /* May have to change this for mobile to repeat and auto fit */
-    /* border: var(--border); */
+    border: var(--border);
 }
 
 .header {
@@ -65,7 +65,7 @@ body {
     width: 100%;
     justify-items: center;
     align-content: center;
-    border: var(--border);
+    /* border: var(--border); */
 }
 
 .calc-container, .results-container {
