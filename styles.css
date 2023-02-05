@@ -2,12 +2,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-size: 16px;
 }
 
 :root {
     --color-body-bg: #ffffff;
     --color-body-text: #333333;
     --color-body-accent: #0D0D0D; /* Maybe #111111 if not */
+    --border: #e0e0e0 1px solid;
     --font-body-text: 'DM Sans', sans-serif;
     --font-weight-body: 400;
     --font-weight-body-medium: 500;
@@ -23,20 +25,51 @@ body {
     color: var(--color-body-text);
     display: grid;
     justify-content: center;
+    height: 100vh;
+    width: 100vw;
 }
 
 .main-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    background-color: aqua;
+    grid-template-rows: min-content 1fr; /* May have to change this for mobile to repeat and auto fit */
+    /* border: var(--border); */
 }
 
 .header {
     grid-column: 1 / -1;
+    display: grid;
+    justify-items: center;
+    gap: 1rem;
+    padding: 24px 0px;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    font-weight: var(--font-weight-body);
+}
+
+.quote-container {
+    display: grid;
+    gap: 1rem;
+    justify-items: center;
+    width: 60%;
+}
+
+.quote {
+    text-align: center;
+}
+
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    justify-items: center;
+    align-content: center;
+    border: var(--border);
 }
 
 .calc-container, .results-container {
     background-color: red;
-    height: 100px;
-    width: 100px;
+    /* height: 100px;
+    width: 100px; */
 }
