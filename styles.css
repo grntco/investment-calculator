@@ -8,6 +8,7 @@
 :root {
     --color-body-bg: #ffffff;
     --color-body-text: #333333;
+    --color-body-text-light: #e0e0e0;
     --color-body-accent: #0D0D0D; /* Maybe #111111 if not */
     --border: #e0e0e0 1px solid;
     --font-body-text: 'DM Sans', sans-serif;
@@ -90,18 +91,36 @@ form, .inputs-container {
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
+    position: relative; /* For symbol */
 }
 
 input[type="number"] {
     height: 1.5rem;
     width: 192px;
     outline: none;
+    text-align: right;
     border: var(--border);
+    -moz-appearance: textfield; /* Firefox */
+    font-family: var(--font-body-text);
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.input-symbol {
+    position: absolute;
+    right: 176px;
+    color: var(--color-body-text-light);
+    background-color:;
 }
 
 .calc-btn {
     border: none;
-    font-family: 'DM Sans', sans-serif;
+    font-family: var(--font-body-text);
     font-size: 1rem;
     background-color: var(--color-body-accent);
     color: var(--color-body-bg);
