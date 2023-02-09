@@ -11,6 +11,7 @@
     --color-body-text-light: #e0e0e0;
     --color-body-accent: #0D0D0D; /* Maybe #111111 if not */
     --border: #e0e0e0 1px solid;
+    --border-focus: #333333 1px solid;
     --font-body-text: 'DM Sans', sans-serif;
     --font-weight-body: 400;
     --font-weight-body-medium: 500;
@@ -111,6 +112,12 @@ input[type="number"] {
     border: var(--border);
     -moz-appearance: textfield; /* Firefox */
     font-family: var(--font-body-text);
+    color: var(--color-body-text-light);
+}
+
+input[type="number"]:focus, select[name="compound"]:focus {
+    border: var(--border-focus);
+    color: var(--color-body-text);
 }
 
 /* Chrome, Safari, Edge, Opera */
@@ -133,10 +140,6 @@ select[name="compound"] {
     width: 192px;
     font-family: var(--font-body-text);
     color: var(--color-body-text-light);
-}
-
-select[name="compound"]::selection {
-    color: var(--color-body-text);
 }
 
 .calc-btn {
