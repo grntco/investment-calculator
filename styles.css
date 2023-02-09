@@ -18,6 +18,11 @@
     --font-weight-body-bold: 700;
 }
 
+::selection {
+    background-color: var(--color-body-text);
+    color: var(--color-body-bg);
+  }
+
 body, html {
     font-family: var(--font-body-text);
 }
@@ -36,6 +41,7 @@ body {
     grid-template-rows: min-content 1fr; /* May have to change this for mobile to repeat and auto fit */
     width: 100vw;
     justify-items: center;
+    padding: 24px;
     /* height: 100vh; */
 }
 
@@ -44,7 +50,7 @@ body {
     display: grid;
     justify-items: center;
     gap: 1rem;
-    padding: 24px 0px;
+    /* padding: 24px 0px; */
 }
 
 .header h1 {
