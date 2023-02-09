@@ -71,7 +71,7 @@ body {
 }
 
 .calc-container, .results-container {
-    border: var(--border);
+    /* border: var(--border); */
     display: grid;
     gap: 2rem;
     padding: 24px 48px;
@@ -97,6 +97,10 @@ form, .inputs-container {
     justify-content: space-between;
     gap: 1rem;
     position: relative; /* For symbol in inputs */
+}
+
+strong {
+    font-weight: 700;
 }
 
 input[type="number"] {
@@ -154,6 +158,9 @@ select[name="compound"]::selection {
 
 .results-container {
     grid-template-rows: min-content 1fr;
+    background-color: var(--color-body-accent);
+    color: var(--color-body-bg);
+
 }
 
 .outputs-container {
