@@ -124,7 +124,6 @@ input::-webkit-inner-spin-button {
     position: absolute;
     right: 176px;
     color: var(--color-body-text-light);
-    background-color:;
 }
 
 select[name="compound"] {
