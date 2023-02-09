@@ -73,6 +73,7 @@ body {
     gap: 2rem;
     padding: 24px 48px;
     width: 100%;
+    min-height: 448px;
 }
 
 h2 {
@@ -91,7 +92,7 @@ form, .inputs-container {
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
-    position: relative; /* For symbol */
+    position: relative; /* For symbol in inputs */
 }
 
 input[type="number"] {
@@ -118,6 +119,19 @@ input::-webkit-inner-spin-button {
     background-color:;
 }
 
+select[name="compound"] {
+    outline: none;
+    border: var(--border);
+    height: 1.5rem;
+    width: 192px;
+    font-family: var(--font-body-text);
+    color: var(--color-body-text-light);
+}
+
+select[name="compound"]::selection {
+    color: var(--color-body-text);
+}
+
 .calc-btn {
     border: none;
     font-family: var(--font-body-text);
@@ -130,6 +144,25 @@ input::-webkit-inner-spin-button {
 
 .calc-btn:hover {
     background-color: var(--color-body-text);
+}
+
+/* Outputs */
+
+.results-container {
+    grid-template-rows: min-content 1fr;
+}
+
+.outputs-container {
+    display: grid;
+    gap: 2rem;
+    height: 1rem;
+}
+
+.output-item {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    /* gap: 1rem; */
 }
 
 
