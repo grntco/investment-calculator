@@ -55,6 +55,17 @@ const quotes = [
   },
 ];
 
+// DOM Elements
+
+
+// Functions
+
+function getRandomQuote(arr) {
+  return Math.floor(Math.random() * arr.length + 1)
+};
+
+
+
 
 
 
