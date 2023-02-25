@@ -1,68 +1,82 @@
-// Random quote on page load
+// Global variables
 
-const quotes = [
+const quotesArr = [
   {
-    "quote": "All the returns in life, whether in wealth, relationships, or knowledge, come from compound interest.",
-    "author": "Naval Ravikant",
-    "link": "https://twitter.com/naval/status/1002103908947263488"
+    text: "All the returns in life, whether in wealth, relationships, or knowledge, come from compound interest.",
+    author: "Naval Ravikant",
+    source: "https://twitter.com/naval/status/1002103908947263488"
   },
   {
-    "quote": "The long game isn't particularly notable. It doesn't attract a lot of attention. In fact, from the outside, the long game looks boring. The tiny advantages that accrue aren't noticed until success becomes too obvious to ignore.",
-    "author": "Farnam Street",
-    "link": "https://fs.blog/long-game/"
+    text: "The long game isn't particularly notable. It doesn't attract a lot of attention. In fact, from the outside, the long game looks boring. The tiny advantages that accrue aren't noticed until success becomes too obvious to ignore.",
+    author: "Farnam Street",
+    source: "https://fs.blog/long-game/"
   },
   {
-    "quote": "The first step is the hardest. You have to be willing to suffer today in order to not suffer tomorrow. This is why so few people play the long game.",
-    "author": "Farnam Street",
-    "link": "https://fs.blog/long-game/"
+    text: "The first step is the hardest. You have to be willing to suffer today in order to not suffer tomorrow. This is why so few people play the long game.",
+    author: "Farnam Street",
+    source: "https://fs.blog/long-game/"
   },
   {
-    "quote": "Slug it out one inch at a time, day by day. At the end of the day—if you live long enough – most people get what they deserve.",
-    "author": "Charlie Munger"
+    text: "Slug it out one inch at a time, day by day. At the end of the day—if you live long enough—most people get what they deserve.",
+    author: "Charlie Munger"
   },
   {
-    "quote": "Professionals stick to the schedule; amateurs let life get in the way.",
-    "author": "James Clear",
-    "link": "https://jamesclear.com/atomic-habits"
+    text: "Professionals stick to the schedule; amateurs let life get in the way.",
+    author: "James Clear",
+    source: "https://jamesclear.com/atomic-habits"
   },
   {
-    "quote": "Success is the product of daily habits—not once-in-a-lifetime transformations.",
-    "author": "James Clear",
-    "link": "https://jamesclear.com/atomic-habits"
+    text: "Success is the product of daily habits—not once-in-a-lifetime transformations.",
+    author: "James Clear",
+    source: "https://jamesclear.com/atomic-habits"
   },
   {
-    "quote": "The individual investor should act consistently as an investor and not as a speculator.",
-    "author": "Benjamin Graham"
+    text: "The individual investor should act consistently as an investor and not as a speculator.",
+    author: "Benjamin Graham"
   },
   {
-    "quote": "Don't look for the needle in the haystack. Just buy the haystack!",
-    "author": "John Bogle",
-    "source": "https://www.amazon.com/Little-Book-Common-Sense-Investing/dp/0470102101"
+    text: "Don't look for the needle in the haystack. Just buy the haystack!",
+    author: "John Bogle",
+    source: "https://www.amazon.com/Little-Book-Common-Sense-Investing/dp/0470102101"
   },
   {
-    "quote": "Owning the stock market over the long term is a winner's game, but attempting to beat the market is a loser's game.",
-    "author": "John Bogle",
-    "source": "https://www.amazon.com/Little-Book-Common-Sense-Investing/dp/0470102101"
+    text: "Owning the stock market over the long term is a winner's game, but attempting to beat the market is a loser's game.",
+    author: "John Bogle",
+    source: "https://www.amazon.com/Little-Book-Common-Sense-Investing/dp/0470102101"
   },
   {
-    "quote": "Simplicity beats complexity",
-    "author": "John Bogle",
-    "source": "https://www.amazon.com/Little-Book-Common-Sense-Investing/dp/0470102101"
+    text: "Simplicity beats complexity",
+    author: "John Bogle",
+    source: "https://www.amazon.com/Little-Book-Common-Sense-Investing/dp/0470102101"
   },
   {
-    "quote": "Compound interest is the eighth wonder of the world. He who understands it, earns it; he who doesn't, pays it.",
-    "author": "Albert Einstein"
-  },
+    text: "Compound interest is the eighth wonder of the world. He who understands it, earns it; he who doesn't, pays it.",
+    author: "Albert Einstein"
+  }
 ];
 
 // DOM Elements
 
+const quote = document.getElementById("quote");
+const citation = document.getElementById("citation");
 
 // Functions
 
 function getRandomQuote(arr) {
-  return Math.floor(Math.random() * arr.length + 1)
+  return arr[Math.floor(Math.random() * arr.length)];
 };
+
+function loadQuote() {
+  let quoteObj = getRandomQuote(quotesArr);
+  quote.textContent = `"${quoteObj.text}"`;
+  if (quoteObj.hasOwnProperty("source")) {
+    citation.innerHTML = `– <a href="${quoteObj.source}" target="_blank">${quoteObj.author}</a>`;
+  } else {
+    citation.textContent = `– ${quoteObj.author}`;
+  }
+}
+
+
 
 
 
