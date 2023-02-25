@@ -69,6 +69,15 @@ body {
     text-align: center;
 }
 
+.citation a {
+    color: var(--color-body-text);
+
+}
+
+.citation a:hover{
+    color: var(--color-body-text-light);
+}
+
 .main-content {
     display: grid;
     width: 80%;

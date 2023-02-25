@@ -75,6 +75,8 @@ function loadQuote() {
     citation.textContent = `– ${quoteObj.author}`;
   }
 }
+loadQuote();
+
 
 
 
