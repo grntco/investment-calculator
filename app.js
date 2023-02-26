@@ -79,19 +79,22 @@ loadQuote();
 
 
 
-// const calcBtn = document.getElementById("calc-btn");
+const values = [];
+const calcBtn = document.getElementById("calc-btn");
 
 // calcBtn.addEventListener("click", function() {
-
+//   values = getValues();
+//   return values;
 // });
 
-// function getValues() {
-//   let p = document.getElementById("principal").value;
-//   let r = document.getElementById("rate").value;
-//   let n = document.getElementById("comp").value;
-//   let t = document.getElementById("principal").value;
-//   let pmt = document.getElementById("principal").value;
-// }
+function getValues() {
+  let p = document.getElementById("p").value;
+  let r = document.getElementById("r").value;
+  let n = document.getElementById("n").value;
+  let t = document.getElementById("t").value;
+  let pmt = document.getElementById("pmt").value;
+  return [p, r, n, t, pmt];
+};
 
 
 
@@ -101,7 +104,6 @@ loadQuote();
 
 
 // In this simple example, the principal and contributions are compounded monthly. I belive this is typical, although some calculators give the option to compound annually, continuously, etc. I don't think it's necessary to change it to anything other than monthly.
-// Would n be a constant of 12?
 
 function calc(P, r, n, t, PMT) {
   function calcPrincipal() {
