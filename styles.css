@@ -130,7 +130,7 @@ input[type="number"] {
     color: var(--color-body-text-light);
 }
 
-input[type="number"]:focus, select[name="compound"]:focus {
+input[type="number"]:focus, select[name="n"]:focus {
     border: var(--border-focus);
     color: var(--color-body-text);
 }
@@ -148,7 +148,7 @@ input::-webkit-inner-spin-button {
     color: var(--color-body-text-light);
 }
 
-select[name="compound"] {
+select[name="n"] {
     outline: none;
     border: var(--border);
     height: 1.5rem;

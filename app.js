@@ -79,13 +79,26 @@ loadQuote();
 
 
 
+// const calcBtn = document.getElementById("calc-btn");
 
+// calcBtn.addEventListener("click", function() {
+
+// });
+
+// function getValues() {
+//   let p = document.getElementById("principal").value;
+//   let r = document.getElementById("rate").value;
+//   let n = document.getElementById("comp").value;
+//   let t = document.getElementById("principal").value;
+//   let pmt = document.getElementById("principal").value;
+// }
 
 
 
 
 
 //Need to round down, can't round up if money, right?
+
 
 // In this simple example, the principal and contributions are compounded monthly. I belive this is typical, although some calculators give the option to compound annually, continuously, etc. I don't think it's necessary to change it to anything other than monthly.
 // Would n be a constant of 12?

@@ -29,23 +29,23 @@
           <form>
             <ul class="inputs-container">
               <li class="input-item">
-                <label for="principal"><strong>Starting Amount:</strong></label>
+                <label for="p"><strong>Starting Amount:</strong></label>
                 <span class="input-symbol">$</span>
                 <input
                   type="number"
-                  name="principal"
-                  id="principal"
+                  name="p"
+                  id="p"
                   max="100000000"
                   required
                 />
               </li>
               <li class="input-item">
-                <label for="rate">Annual Return:</label>
+                <label for="r">Annual Return:</label>
                 <span class="input-symbol">%</span>
                 <input
                   type="number"
-                  name="rate"
-                  id="rate"
+                  name="r"
+                  id="r"
                   max="1000"
                   required
                 />
@@ -62,8 +62,8 @@
                 />
               </li>
               <li class="input-item">
-                <label for="compound">Compound:</label>
-                <select name="compound" id="compound" required>
+                <label for="n">Compound:</label>
+                <select name="n" id="n" required>
                   <option value="1">Annually</option>
                   <option value="4">Quarterly</option>
                   <option value="12">Monthly</option>
@@ -74,11 +74,11 @@
                 </select>
               </li>
               <li class="input-item">
-                <label for="time">Time (in years):</label>
+                <label for="t">Time (in years):</label>
                 <input
                   type="number"
-                  name="time"
-                  id="time"
+                  name="t"
+                  id="t"
                   min="1"
                   max="100"
                   required
