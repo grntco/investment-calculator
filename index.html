@@ -51,12 +51,13 @@
                 />
               </li>
               <li class="input-item">
-                <label for="mc">Monthly Contribution (made end of month):</label>
+                <label for="mc">Monthly Contribution:</label>
                 <span class="input-symbol">$</span>
                 <input
                   type="number"
                   name="mc"
                   id="mc"
+                  min="0"
                   max="100000000"
                   required
                 />
@@ -85,7 +86,7 @@
                 />
               </li>
             </ul>
-            <button type="submit" class="calc-btn" id="calc-btn">
+            <button type="button" class="calc-btn" id="calc-btn">
               See Results
             </button>
           </form>
@@ -95,15 +96,15 @@
           <ul class="outputs-container">
             <li class="output-item">
               <div class="output-label"><strong>End Balance:</strong></div>
-              <div class="output-result" id=""><strong>$1000</strong></div>
+              <div class="output-result" id="end-balance"></div>
             </li>
             <li class="output-item">
-              <div class="output-label">Total Contributions:</div>
-              <div class="output-result" id="">$1000</div>
+              <div class="output-label">Total Contributions (not including starting amount):</div>
+              <div class="output-result" id="total-contribs">$1000</div>
             </li>
             <li class="output-item">
               <div class="output-label">Total Interest:</div>
-              <div class="output-result" id="">$1000</div>
+              <div class="output-result" id="total-interest">$1000</div>
             </li>
           </ul>
         </div>

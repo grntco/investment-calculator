@@ -1,4 +1,4 @@
-// Global variables
+// QUOTES
 
 const quotesArr = [
   {
@@ -52,6 +52,11 @@ const quotesArr = [
   {
     text: "Compound interest is the eighth wonder of the world. He who understands it, earns it; he who doesn't, pays it.",
     author: "Albert Einstein"
+  },
+  {
+    text: "Patience is a superpower.",
+    author: "Oliver Burkeman",
+    source: "https://www.amazon.com/Four-Thousand-Weeks-Management-Mortals/dp/0374159122"
   }
 ];
 
@@ -77,43 +82,56 @@ function loadQuote() {
 }
 loadQuote();
 
+// CALCULATOR
 
-
-const values = [];
+const endBalance = document.getElementById("end-balance");
+const totalContribs = document.getElementById("total-contribs");
+const totalInterest = document.getElementById("total-interest");
 const calcBtn = document.getElementById("calc-btn");
+calcBtn.addEventListener("click", calc);
 
-calcBtn.addEventListener("click", getValues);
-
-function getValues() {
+function calc() {
+  // Variables
   let p = document.getElementById("p").value;
-  let r = document.getElementById("r").value;
+  let r = document.getElementById("r").value / 100; //Converts to decimal
   let n = document.getElementById("n").value;
   let t = document.getElementById("t").value;
-  let mc = document.getElementById("pmt").value;
-  return [p, r, n, t, mc];
+  let mc = document.getElementById("mc").value;
+  
+  // Functions
+  function calcTotalMC() {
+    return mc * t * 12;
+  };
+
+  function calcTotalInterest() {
+    return calcEndBalance() - calcTotalMC() - p;
+  };
+  
+  function calcPrincInterest() {
+    return p * (1 + r / n) ** (t * n);
+  }
+  
+  function calcMCInterest() {
+    // return mc * ((1 + r / n) ** ((n * t + 1) / 12) - 1) * 12 / (r / n)
+    return 12 / n * mc * (((1 + r / n) ** (n * t)) - 1) / (r / n);
+  }
+  
+  function calcEndBalance() {
+    // endBalance.innerHTML = `<strong>${calcPrincInterest()} + ${calcMCInterest()}</strong>`;
+    if (mc > 0) {
+      endBalance.innerHTML = `<strong>$${calcPrincInterest() + calcMCInterest()}</strong>`;
+    } else {
+      endBalance.innerHTML = `<strong>$${calcPrincInterest()}</strong>`;
+    }
+    return calcPrincInterest() + calcMCInterest();
+  };
+
+  calcEndBalance();
 };
 
-// Should this include the principal?
-function calcTotalMC() {
-  return mc * t * 12;
-};
 
-function calcTotalInterest() {
-  return calcEndBalance() - calcTotalMC() - p;
-};
 
-function calcPrincInterest() {
-  return p * (1 + r / n) ** (t * n);
-}
 
-function calcMCInterest() {
-  // return mc * ((1 + r / n) ** ((n * t + 1) / 12) - 1) * 12 / (r / n)
-  return 12 / n * mc * (((1 + r / n) ** (n * t)) - 1) / (r / n);
-}
-
-function calcEndBalance() {
-  return calcPrincInterest() + calcMCInterest();
-};
 
 
 
@@ -123,22 +141,22 @@ function calcEndBalance() {
 
 // In this simple example, the principal and contributions are compounded monthly. I belive this is typical, although some calculators give the option to compound annually, continuously, etc. I don't think it's necessary to change it to anything other than monthly.
 
-function calc(P, r, n, t, PMT) {
-  function calcPrincipal() {
-    return P * (1 + r / n) ** (t * n);
-  }
+// function calc(P, r, n, t, PMT) {
+//   function calcPrincipal() {
+//     return P * (1 + r / n) ** (t * n);
+//   }
 
-  // This will be based off a selection of two options. For right now, I'm just using the monthly contribution at the end of a month;
-  function calcBeginCont() {
-    return PMT * (((1 + r / n) ** (t * n) - 1) / (r / n)) * (1 + r / n);
-  }
+//   // This will be based off a selection of two options. For right now, I'm just using the monthly contribution at the end of a month;
+//   function calcBeginCont() {
+//     return PMT * (((1 + r / n) ** (t * n) - 1) / (r / n)) * (1 + r / n);
+//   }
 
-  //C * [((1 + r/n)^(n*t+1) - (1 + r/n))/ (r/n)]
+//   //C * [((1 + r/n)^(n*t+1) - (1 + r/n))/ (r/n)]
 
-  // PMT × {[(1 + r/n)^(nt) - 1] / (r/n)}
-  function calcEndCont() {
-    return PMT * (((1 + r / n) ** (t * n) - 1) / (r / n));
-  }
+//   // PMT × {[(1 + r/n)^(nt) - 1] / (r/n)}
+//   function calcEndCont() {
+//     return PMT * (((1 + r / n) ** (t * n) - 1) / (r / n));
+//   }
 
-  return calcPrincipal() + calcEndCont();
-}
+//   return calcPrincipal() + calcEndCont();
+// }
