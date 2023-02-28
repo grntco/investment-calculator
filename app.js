@@ -93,25 +93,26 @@ function getValues() {
   return [p, r, n, t, mc];
 };
 
-// function calcEndBalance() {
-//   function calcPInterest() {
-//     return P * (1 + r / n) ** (t * n);
-//   }
-
-//   function calcMCInterest() {
-
-//   }
-
-//   return calcPInterest() + calcMCInterest();
-// };
-
 // Should this include the principal?
-function calcTotalContribs(p, mc, t) {
-  return p + (mc * t * 12);
+function calcTotalMC(mc, t) {
+  return mc * t * 12;
 };
 
 function calcTotalInterest() {
-  return calcEndBalance() - calcTotalContribs();
+  return calcEndBalance() - calcTotalMC();
+};
+
+function calcPrincInterest(p, r, n, t) {
+  return p * (1 + r / n) ** (t * n);
+}
+
+function calcMCInterest(mc, r, n, t) {
+  // return mc * ((1 + r / n) ** ((n * t + 1) / 12) - 1) * 12 / (r / n)
+  return 12 / n * mc * (((1 + r / n) ** (n * t)) - 1) / (r / n);
+}
+
+function calcEndBalance() {
+  return calcPrincInterest() + calcMCInterest();
 };
 
 
@@ -131,6 +132,8 @@ function calc(P, r, n, t, PMT) {
   function calcBeginCont() {
     return PMT * (((1 + r / n) ** (t * n) - 1) / (r / n)) * (1 + r / n);
   }
+
+  //C * [((1 + r/n)^(n*t+1) - (1 + r/n))/ (r/n)]
 
   // PMT × {[(1 + r/n)^(nt) - 1] / (r/n)}
   function calcEndCont() {
