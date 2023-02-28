@@ -100,11 +100,15 @@ function calc() {
   
   // Functions
   function calcTotalMC() {
-    return mc * t * 12;
+    let result = mc * t * 12;
+    totalContribs.textContent = `$${result}`;
+    return result;
   };
 
   function calcTotalInterest() {
-    return calcEndBalance() - calcTotalMC() - p;
+    let result = calcEndBalance() - calcTotalMC() - p;
+    totalInterest.textContent = `$${result}`
+    return result;
   };
   
   function calcPrincInterest() {
@@ -127,6 +131,8 @@ function calc() {
   };
 
   calcEndBalance();
+  calcTotalMC();
+  calcTotalInterest();
 };
 
 
