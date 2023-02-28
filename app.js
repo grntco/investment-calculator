@@ -82,20 +82,37 @@ loadQuote();
 const values = [];
 const calcBtn = document.getElementById("calc-btn");
 
-// calcBtn.addEventListener("click", function() {
-//   values = getValues();
-//   return values;
-// });
+calcBtn.addEventListener("click", getValues);
 
 function getValues() {
   let p = document.getElementById("p").value;
   let r = document.getElementById("r").value;
   let n = document.getElementById("n").value;
   let t = document.getElementById("t").value;
-  let pmt = document.getElementById("pmt").value;
-  return [p, r, n, t, pmt];
+  let mc = document.getElementById("pmt").value;
+  return [p, r, n, t, mc];
 };
 
+// function calcEndBalance() {
+//   function calcPInterest() {
+//     return P * (1 + r / n) ** (t * n);
+//   }
+
+//   function calcMCInterest() {
+
+//   }
+
+//   return calcPInterest() + calcMCInterest();
+// };
+
+// Should this include the principal?
+function calcTotalContribs(p, mc, t) {
+  return p + (mc * t * 12);
+};
+
+function calcTotalInterest() {
+  return calcEndBalance() - calcTotalContribs();
+};
 
 
 
