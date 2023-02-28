@@ -94,19 +94,19 @@ function getValues() {
 };
 
 // Should this include the principal?
-function calcTotalMC(mc, t) {
+function calcTotalMC() {
   return mc * t * 12;
 };
 
 function calcTotalInterest() {
-  return calcEndBalance() - calcTotalMC();
+  return calcEndBalance() - calcTotalMC() - p;
 };
 
-function calcPrincInterest(p, r, n, t) {
+function calcPrincInterest() {
   return p * (1 + r / n) ** (t * n);
 }
 
-function calcMCInterest(mc, r, n, t) {
+function calcMCInterest() {
   // return mc * ((1 + r / n) ** ((n * t + 1) / 12) - 1) * 12 / (r / n)
   return 12 / n * mc * (((1 + r / n) ** (n * t)) - 1) / (r / n);
 }
