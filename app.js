@@ -17,6 +17,11 @@ const quotesArr = [
     source: "https://fs.blog/long-game/"
   },
   {
+    text: "The longer you play the short game, the harder things get. The longer you play the long game, the better the rewards. This happens because as the accumulation of tiny advantages makes the future easier, but the accumulation of tiny disadvantages makes the future harder.",
+    author: "Farnam Street",
+    source: "https://twitter.com/farnamstreet/status/1630931340878139392"
+  },
+  {
     text: "Slug it out one inch at a time, day by day. At the end of the day—if you live long enough—most people get what they deserve.",
     author: "Charlie Munger"
   },
