@@ -35,9 +35,11 @@
                   type="number"
                   name="p"
                   id="p"
-                  max="100000000"
+                  min="0"
+                  max="1000000000"
                   required
                 />
+                <div class="error-msg display-error" id="p-error">Enter an amount between $0 and 1,000,000,000.</div>
               </li>
               <li class="input-item">
                 <label for="r">Annual Return:</label>
@@ -46,9 +48,11 @@
                   type="number"
                   name="r"
                   id="r"
+                  min="0.01"
                   max="1000"
                   required
                 />
+                <div class="error-msg display-error" id="r-error">Enter a rate between 0.01% and 1000%.</div>
               </li>
               <li class="input-item">
                 <label for="mc">Monthly Contribution:</label>
@@ -59,19 +63,19 @@
                   id="mc"
                   min="0"
                   max="100000000"
-                  required
                 />
+                <div class="error-msg display-error" id="mc-error">Enter an amount between $0 and $1,000,000,000.</div>
               </li>
               <li class="input-item">
                 <label for="n">Compound:</label>
                 <select name="n" id="n" required>
                   <option value="1">Annually</option>
                   <option value="4">Quarterly</option>
-                  <option value="12">Monthly</option>
+                  <option value="12" selected>Monthly</option>
                   <option value="26">Biweekly</option>
                   <option value="52">Weekly</option>
                   <option value="365">Daily</option>
-                  <option value="0">Continuously</option>
+                  <option value="0" >Continuously</option>
                 </select>
               </li>
               <li class="input-item">
@@ -84,6 +88,7 @@
                   max="100"
                   required
                 />
+                <div class="error-msg display-error" id="t-error">Enter a number between 1 and 100.</div>
               </li>
             </ul>
             <button type="button" class="calc-btn" id="calc-btn">
