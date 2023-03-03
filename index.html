@@ -26,13 +26,14 @@
       <div class="main-content">
         <div class="calc-container">
           <h2>Inputs</h2>
-          <form>
+          <form autocomplete="off">
             <ul class="inputs-container">
               <li class="input-item">
                 <label for="p"><strong>Starting Amount:</strong></label>
                 <span class="input-symbol">$</span>
                 <input
-                  type="number"
+                  type="text"
+                  class="number-input"
                   name="p"
                   id="p"
                   min="0"
@@ -45,7 +46,8 @@
                 <label for="r">Annual Return:</label>
                 <span class="input-symbol">%</span>
                 <input
-                  type="number"
+                  type="text"
+                  class="number-input"
                   name="r"
                   id="r"
                   min="0.01"
@@ -58,7 +60,8 @@
                 <label for="mc">Monthly Contribution:</label>
                 <span class="input-symbol">$</span>
                 <input
-                  type="number"
+                  type="text"
+                  class="number-input"
                   name="mc"
                   id="mc"
                   min="0"
@@ -81,7 +84,8 @@
               <li class="input-item">
                 <label for="t">Time (in years):</label>
                 <input
-                  type="number"
+                  type="text"
+                  class="number-input"
                   name="t"
                   id="t"
                   min="1"
