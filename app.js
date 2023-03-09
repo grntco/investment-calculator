@@ -135,9 +135,11 @@ function calc() {
     return calcPrincInterest() + calcMCInterest();
   };
 
-  calcEndBalance();
-  calcTotalMC();
-  calcTotalInterest();
+  if (checkValues()) {
+    calcEndBalance();
+    calcTotalMC();
+    calcTotalInterest();
+  };
 };
 
 //Need to round down, can't round up if money, right?
@@ -168,44 +170,18 @@ function calc() {
 
 // INPUT CHECKS
 
-const numInputs = document.querySelectorAll(".number-input");
 
-numInputs.forEach(input => {
-  input.addEventListener('keyup', function() {
-    limitDecimal(input.value);
-  });
-});
 
-const timeInput = document.getElementById('t');
 
-timeInput.addEventListener("keyup", ()=> {
-  console.log('hello')
-});
+// function addComma(str) {
+//   let arr = str.split('');
+//   if (arr.length > 3) {
+//     arr.splice(1, 0, ',');
+//   }
+//   return arr.join('');
+// }
 
-function addComma(str) {
-  let arr = str.split('');
-  if (arr.length > 3) {
-    arr.splice(1, 0, ',');
-  }
-  return arr.join('');
-}
 
-function addDecimal(str) {
-  if (!str.includes('.')) {
-    str += '.00';
-  } else if (str[str.length - 2] === '.') {
-    str += '0';
-  }
-  return str
-}
-
-// Need to write a check somewhere that limits the amount of numbers after the decimal place to 2
-function limitDecimal(str) {
-  if (str.indexOf('.') >= 0) {
-    str = str.substr(0, str.indexOf(".")) + str.substr(str.indexOf("."), 3);
-  }
-  return str;
-}
 
 
 const p = document.getElementById('p');
@@ -228,14 +204,27 @@ function checkYears(years) {
 function checkValues() {
   if (!checkDollar(p.value)) {
     document.getElementById('p-error').classList.add('display-error')
+  } else {
+    document.getElementById('p-error').classList.remove('display-error')
   }
   if (!checkRate(r.value)) {
     document.getElementById('r-error').classList.add('display-error')
+  } else {
+    document.getElementById('r-error').classList.remove('display-error')
   }
   if (!checkDollar(mc.value)) {
     document.getElementById('mc-error').classList.add('display-error')
+  } else {
+    document.getElementById('mc-error').classList.remove('display-error')
   }
-  if (!checkDollar(t.value)) {
+  if (!checkYears(t.value)) {
     document.getElementById('t-error').classList.add('display-error')
+  } else {
+    document.getElementById('t-error').classList.remove('display-error')
+  }
+  if (checkDollar(p.value) && checkRate(r.value) && checkDollar(mc.value) && checkYears(t.value)) {
+    return true;
+  } else {
+    return false;
   }
 }
