@@ -206,3 +206,18 @@ function limitDecimal(str) {
   }
   return str;
 }
+
+
+const p = document.getElementById('p');
+
+function checkDollar(amount) {
+   return amount < 0 || amount > 1000000 ? false : true;
+}
+
+function checkYears(years) {
+  return years < 0.08 || years > 100 ? false : true;
+}
+
+function checkRate(rate) {
+  return rate < 0.01 || rate > 100 ? false : true;
+}
