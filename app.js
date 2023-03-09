@@ -209,15 +209,33 @@ function limitDecimal(str) {
 
 
 const p = document.getElementById('p');
+const r = document.getElementById('r');
+const mc = document.getElementById('mc');
+const t = document.getElementById('t');
 
 function checkDollar(amount) {
    return amount < 0 || amount > 1000000 ? false : true;
+}
+
+function checkRate(rate) {
+  return rate < 0.01 || rate > 100 ? false : true;
 }
 
 function checkYears(years) {
   return years < 0.08 || years > 100 ? false : true;
 }
 
-function checkRate(rate) {
-  return rate < 0.01 || rate > 100 ? false : true;
+function checkValues() {
+  if (!checkDollar(p.value)) {
+    document.getElementById('p-error').classList.add('display-error')
+  }
+  if (!checkRate(r.value)) {
+    document.getElementById('r-error').classList.add('display-error')
+  }
+  if (!checkDollar(mc.value)) {
+    document.getElementById('mc-error').classList.add('display-error')
+  }
+  if (!checkDollar(t.value)) {
+    document.getElementById('t-error').classList.add('display-error')
+  }
 }
