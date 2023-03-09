@@ -32,22 +32,20 @@
                 <label for="p"><strong>Starting Amount:</strong></label>
                 <span class="input-symbol">$</span>
                 <input
-                  type="text"
-                  class="number-input"
+                  type="number"
                   name="p"
                   id="p"
                   min="0"
                   max="1000000"
                   required
                 />
-                <div class="error-msg display-error" id="p-error">Enter an amount between $0 and $1,000,000.</div>
+                <div class="error-msg display-error" id="p-error">Enter a number between 0 and 1,000,000.</div>
               </li>
               <li class="input-item">
                 <label for="r">Annual Return:</label>
                 <span class="input-symbol">%</span>
                 <input
-                  type="text"
-                  class="number-input"
+                  type="number"
                   name="r"
                   id="r"
                   min="0.01"
@@ -60,14 +58,13 @@
                 <label for="mc">Monthly Contribution:</label>
                 <span class="input-symbol">$</span>
                 <input
-                  type="text"
-                  class="number-input"
+                  type="number"
                   name="mc"
                   id="mc"
                   min="0"
                   max="1000000"
                 />
-                <div class="error-msg display-error" id="mc-error">Enter an amount between $0 and $1,000,000.</div>
+                <div class="error-msg display-error" id="mc-error">Enter an number between 0 and 1,000,000.</div>
               </li>
               <li class="input-item">
                 <label for="n">Compound:</label>
@@ -84,8 +81,7 @@
               <li class="input-item">
                 <label for="t">Time (in years):</label>
                 <input
-                  type="text"
-                  class="number-input"
+                  type="number"
                   name="t"
                   id="t"
                   min="1"

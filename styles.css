@@ -132,9 +132,7 @@ strong {
     font-weight: 700;
 }
 
-/* input[type="number"]  */
-
-.number-input {
+input[type="number"] {
     height: 1.5rem;
     width: 192px;
     outline: none;
@@ -145,9 +143,7 @@ strong {
     color: var(--color-body-text-light);
 }
 
-/* input[type="number"] */
-
-.number-input:focus, select[name="n"]:focus {
+input[type="number"]:focus, select[name="n"]:focus {
     border: var(--border-focus);
     color: var(--color-body-text);
 }
