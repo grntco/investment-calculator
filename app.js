@@ -126,13 +126,9 @@ function calc() {
   }
   
   function calcEndBalance() {
-    // endBalance.innerHTML = `<strong>${calcPrincInterest()} + ${calcMCInterest()}</strong>`;
-    if (mc > 0) {
-      endBalance.innerHTML = `<strong>$${calcPrincInterest() + calcMCInterest()}</strong>`;
-    } else {
-      endBalance.innerHTML = `<strong>$${calcPrincInterest()}</strong>`;
-    }
-    return calcPrincInterest() + calcMCInterest();
+    let result = (calcPrincInterest() + calcMCInterest()).toFixed(2);
+    endBalance.innerHTML = `<strong>$${result}</strong>`;
+    return result;
   };
 
   if (checkValues()) {
@@ -169,20 +165,6 @@ function calc() {
 
 
 // INPUT CHECKS
-
-
-
-
-// function addComma(str) {
-//   let arr = str.split('');
-//   if (arr.length > 3) {
-//     arr.splice(1, 0, ',');
-//   }
-//   return arr.join('');
-// }
-
-
-
 
 const p = document.getElementById('p');
 const r = document.getElementById('r');
@@ -228,3 +210,21 @@ function checkValues() {
     return false;
   }
 }
+
+// function truncate(num) {
+//   let str = num.toSring();
+//   if (str.includes('.') && str.indexOf('.') ) {
+
+//   } 
+//   return num;
+// }
+
+
+
+// function addComma(str) {
+//   let arr = str.split('');
+//   if (arr.length > 3) {
+//     arr.splice(1, 0, ',');
+//   }
+//   return arr.join('');
+// }
