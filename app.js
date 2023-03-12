@@ -111,7 +111,7 @@ function calc() {
   };
 
   function calcTotalInterest() {
-    let result = calcEndBalance() - calcTotalMC() - p;
+    let result = (calcEndBalance() - calcTotalMC() - p).toFixed(2);
     totalInterest.textContent = `$${result}`
     return result;
   };
@@ -210,14 +210,6 @@ function checkValues() {
     return false;
   }
 }
-
-// function truncate(num) {
-//   let str = num.toSring();
-//   if (str.includes('.') && str.indexOf('.') ) {
-
-//   } 
-//   return num;
-// }
 
 
 
