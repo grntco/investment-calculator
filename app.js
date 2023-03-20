@@ -211,12 +211,37 @@ function checkValues() {
   }
 }
 
+const theNum = 123456.78;
+
+// function addCommas(str) {
+//   if (str.length > 3) {
+//     let start = str.length - 1;
+//     if (str.includes('.')) {
+//       start = str.length - 4;
+//     };
+    
+//   }
 
 
-// function addComma(str) {
+
+
 //   let arr = str.split('');
 //   if (arr.length > 3) {
 //     arr.splice(1, 0, ',');
 //   }
 //   return arr.join('');
 // }
+
+
+const numInputs = document.querySelectorAll('.num-input');
+const inputSymbols = document.querySelectorAll('.input-symbol');
+
+document.body.addEventListener('click', function(e) {
+  if (!e.target.classList.contains('num-input')) {
+    inputSymbols.forEach(item => {
+      item.classList.remove('focused');
+    });
+  } else {
+    e.target.previousSibling.previousSibling.classList.add('focused');
+  }
+});
