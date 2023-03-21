@@ -232,15 +232,26 @@ const theNum = 123456.78;
 //   return arr.join('');
 // }
 
-
+// OHMYGODTHISWORKSYAYAY
 const numInputs = document.querySelectorAll('.num-input');
 const inputSymbols = document.querySelectorAll('.input-symbol');
 
+function checkFocus(item) {
+  return item.classList.contains('focused');
+};
+
 document.body.addEventListener('click', function(e) {
-  if (!e.target.classList.contains('num-input')) {
+  let check = [...inputSymbols].some(checkFocus);
+
+  if ((!e.target.classList.contains('num-input'))) {
     inputSymbols.forEach(item => {
       item.classList.remove('focused');
     });
+  } else if (check) {
+    inputSymbols.forEach(item => {
+      item.classList.remove('focused');
+    });
+    e.target.previousSibling.previousSibling.classList.add('focused');
   } else {
     e.target.previousSibling.previousSibling.classList.add('focused');
   }
