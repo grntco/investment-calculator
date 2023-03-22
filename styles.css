@@ -82,7 +82,7 @@ body {
 .main-content {
     display: grid;
     width: 80%;
-    grid-template-columns: repeat(auto-fit, minmax(460px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(472px, 1fr));
     align-content: center;
 }
 
@@ -180,7 +180,6 @@ select[name="n"] {
     font-size: 1rem;
     background-color: var(--color-body-accent);
     color: var(--color-body-bg);
-    /* padding: 12px 16px; */
     height: 3rem;
     cursor: pointer;
 }
@@ -188,8 +187,6 @@ select[name="n"] {
 .calc-btn:hover {
     background-color: var(--color-body-text);
 }
-
-/* Outputs */
 
 .results-container {
     background-color: var(--color-body-accent);
@@ -206,7 +203,19 @@ select[name="n"] {
     list-style: none;
     display: flex;
     justify-content: space-between;
-    /* gap: 1rem; */
 }
 
+@media only screen and (max-width: 767px) {
+    .main-container {
+        padding: 0px;
+    }
+
+    .main-content {
+        width: 100%;
+    }
+
+    .calc-container, .results-container {
+        width: 100%;
+    }
+}
 
