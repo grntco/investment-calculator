@@ -99,20 +99,21 @@ function calc() {
   // Variables
   let p = document.getElementById("p").value;
   let r = document.getElementById("r").value / 100; //Converts to decimal
-  let n = document.getElementById("n").value;
+  // let n = document.getElementById("n").value;
+  let n = 12;
   let t = document.getElementById("t").value;
   let mc = document.getElementById("mc").value;
   
   // Functions
   function calcTotalMC() {
     let result = mc * t * 12;
-    totalContribs.textContent = `$${result}`;
+    totalContribs.textContent = `$${addCommas(result.toFixed(2))}`;
     return result;
   };
 
   function calcTotalInterest() {
     let result = (calcEndBalance() - calcTotalMC() - p).toFixed(2);
-    totalInterest.textContent = `$${result}`
+    totalInterest.textContent = `$${addCommas(result)}`
     return result;
   };
   
@@ -121,13 +122,16 @@ function calc() {
   }
   
   function calcMCInterest() {
+    // P * ((1 + (r/n))^(n*t) - 1) / (r/n)
     // return mc * ((1 + r / n) ** ((n * t + 1) / 12) - 1) * 12 / (r / n)
+    // return mc * (((1 + (r / n)) ** (n / 12) - 1) / (r / n)) * ((1 + (r / n)) ** (n * t / 12) - 1);
+    // return ((mc * 12 / n ) * (((1 + r / n) ** (n * t)) - 1) / (r / n));
     return 12 / n * mc * (((1 + r / n) ** (n * t)) - 1) / (r / n);
   }
   
   function calcEndBalance() {
     let result = (calcPrincInterest() + calcMCInterest()).toFixed(2);
-    endBalance.innerHTML = `<strong>$${result}</strong>`;
+    endBalance.innerHTML = `<strong>$${addCommas(result)}</strong>`;
     return result;
   };
 
@@ -213,26 +217,11 @@ function checkValues() {
 
 const theNum = 123456.78;
 
-// function addCommas(str) {
-//   if (str.length > 3) {
-//     let start = str.length - 1;
-//     if (str.includes('.')) {
-//       start = str.length - 4;
-//     };
-    
-//   }
+function addCommas(num) {
+  return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
 
 
-
-
-//   let arr = str.split('');
-//   if (arr.length > 3) {
-//     arr.splice(1, 0, ',');
-//   }
-//   return arr.join('');
-// }
-
-// OHMYGODTHISWORKSYAYAY
 const numInputs = document.querySelectorAll('.num-input');
 const inputSymbols = document.querySelectorAll('.input-symbol');
 

@@ -83,7 +83,6 @@ body {
     display: grid;
     width: 80%;
     grid-template-columns: repeat(auto-fit, minmax(460px, 1fr));
-    /* justify-items: center; */
     align-content: center;
 }
 

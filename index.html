@@ -25,7 +25,7 @@
       </div>
       <div class="main-content">
         <div class="calc-container">
-          <h2>Inputs</h2>
+          <h2>Efforts</h2>
           <form autocomplete="off">
             <ul class="inputs-container">
               <li class="input-item">
@@ -38,6 +38,7 @@
                   class="num-input"
                   min="0"
                   max="1000000"
+                  step="0.01"
                   required
                 />
                 <div class="error-msg" id="p-error">Enter a number between 0 and 1,000,000.</div>
@@ -69,7 +70,7 @@
                 />
                 <div class="error-msg" id="mc-error">Enter an number between 0 and 1,000,000.</div>
               </li>
-              <li class="input-item">
+              <!-- <li class="input-item">
                 <label for="n">Compound:</label>
                 <select name="n" id="n" required>
                   <option value="1">Annually</option>
@@ -80,7 +81,7 @@
                   <option value="365">Daily</option>
                   <option value="0" >Continuously</option>
                 </select>
-              </li>
+              </li> -->
               <li class="input-item">
                 <label for="t">Time (in years):</label>
                 <input
@@ -95,12 +96,12 @@
               </li>
             </ul>
             <button type="button" class="calc-btn" id="calc-btn">
-              See Results
+              Show Results
             </button>
           </form>
         </div>
         <div class="results-container">
-          <h2>Outputs</h2>
+          <h2>Results</h2>
           <ul class="outputs-container">
             <li class="output-item">
               <div class="output-label"><strong>End Balance:</strong></div>
