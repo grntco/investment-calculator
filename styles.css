@@ -42,7 +42,6 @@ body {
     width: 100vw;
     justify-items: center;
     padding: 24px;
-    /* height: 100vh; */
 }
 
 .header {
@@ -51,7 +50,6 @@ body {
     justify-items: center;
     gap: 1.5rem;
     margin: 1rem 0;
-    /* padding: 24px 0px; */
 }
 
 .header h1 {
