@@ -1,5 +1,4 @@
 // QUOTES
-
 const quotesArr = [
   {
     text: "All the returns in life, whether in wealth, relationships, or knowledge, come from compound interest.",
@@ -65,12 +64,10 @@ const quotesArr = [
   }
 ];
 
-// DOM Elements
+// Load a new quote upon page load
 
 const quote = document.getElementById("quote");
 const citation = document.getElementById("citation");
-
-// Functions
 
 function getRandomQuote(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
@@ -88,15 +85,12 @@ function loadQuote() {
 loadQuote();
 
 // CALCULATOR
-
 const endBalance = document.getElementById("end-balance");
 const totalContribs = document.getElementById("total-contribs");
 const totalInterest = document.getElementById("total-interest");
 const calcBtn = document.getElementById("calc-btn");
-calcBtn.addEventListener("click", calc);
 
 function calc() {
-  // Variables
   let p = document.getElementById("p").value;
   let r = document.getElementById("r").value / 100; //Converts to decimal
   // let n = document.getElementById("n").value;
@@ -104,7 +98,10 @@ function calc() {
   let t = document.getElementById("t").value;
   let mc = document.getElementById("mc").value;
   
-  // Functions
+  function addCommas(num) {
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
   function calcTotalMC() {
     let result = mc * t * 12;
     totalContribs.textContent = `$${addCommas(result.toFixed(2))}`;
@@ -122,10 +119,6 @@ function calc() {
   }
   
   function calcMCInterest() {
-    // P * ((1 + (r/n))^(n*t) - 1) / (r/n)
-    // return mc * ((1 + r / n) ** ((n * t + 1) / 12) - 1) * 12 / (r / n)
-    // return mc * (((1 + (r / n)) ** (n / 12) - 1) / (r / n)) * ((1 + (r / n)) ** (n * t / 12) - 1);
-    // return ((mc * 12 / n ) * (((1 + r / n) ** (n * t)) - 1) / (r / n));
     return 12 / n * mc * (((1 + r / n) ** (n * t)) - 1) / (r / n);
   }
   
@@ -142,52 +135,33 @@ function calc() {
   };
 };
 
-//Need to round down, can't round up if money, right?
+calcBtn.addEventListener("click", calc);
+document.addEventListener("keypress", function(e) {
+  if (e.key === "Enter") {
+    calc();
+  }
+})
 
-
-// In this simple example, the principal and contributions are compounded monthly. I belive this is typical, although some calculators give the option to compound annually, continuously, etc. I don't think it's necessary to change it to anything other than monthly.
-
-// function calc(P, r, n, t, PMT) {
-//   function calcPrincipal() {
-//     return P * (1 + r / n) ** (t * n);
-//   }
-
-//   // This will be based off a selection of two options. For right now, I'm just using the monthly contribution at the end of a month;
-//   function calcBeginCont() {
-//     return PMT * (((1 + r / n) ** (t * n) - 1) / (r / n)) * (1 + r / n);
-//   }
-
-//   //C * [((1 + r/n)^(n*t+1) - (1 + r/n))/ (r/n)]
-
-//   // PMT × {[(1 + r/n)^(nt) - 1] / (r/n)}
-//   function calcEndCont() {
-//     return PMT * (((1 + r / n) ** (t * n) - 1) / (r / n));
-//   }
-
-//   return calcPrincipal() + calcEndCont();
-// }
-
-
-// INPUT CHECKS
-
+// INPUT VALIDATIONS
 const p = document.getElementById('p');
 const r = document.getElementById('r');
 const mc = document.getElementById('mc');
 const t = document.getElementById('t');
 
-function checkDollar(amount) {
-   return amount < 0 || amount > 1000000 ? false : true;
-}
-
-function checkRate(rate) {
-  return rate < 0.01 || rate > 100 ? false : true;
-}
-
-function checkYears(years) {
-  return years < 0.08 || years > 100 ? false : true;
-}
-
 function checkValues() {
+
+  function checkDollar(amount) {
+      return amount < 0 || amount > 1000000 ? false : true;
+  }
+  
+  function checkRate(rate) {
+    return rate < 0.01 || rate > 100 ? false : true;
+  }
+  
+  function checkYears(years) {
+    return years < 0.08 || years > 100 ? false : true;
+  }
+
   if (!checkDollar(p.value)) {
     document.getElementById('p-error').classList.add('display-error')
   } else {
@@ -215,22 +189,15 @@ function checkValues() {
   }
 }
 
-const theNum = 123456.78;
-
-function addCommas(num) {
-  return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
-
-
 const numInputs = document.querySelectorAll('.num-input');
 const inputSymbols = document.querySelectorAll('.input-symbol');
 
-function checkFocus(item) {
-  return item.classList.contains('focused');
-};
-
 document.body.addEventListener('click', function(e) {
   let check = [...inputSymbols].some(checkFocus);
+
+  function checkFocus(item) {
+    return item.classList.contains('focused');
+  };
 
   if ((!e.target.classList.contains('num-input'))) {
     inputSymbols.forEach(item => {
