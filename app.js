@@ -189,26 +189,19 @@ function checkValues() {
   }
 }
 
-const numInputs = document.querySelectorAll('.num-input');
 const inputSymbols = document.querySelectorAll('.input-symbol');
 
-document.body.addEventListener('click', function(e) {
-  let check = [...inputSymbols].some(checkFocus);
-
-  function checkFocus(item) {
-    return item.classList.contains('focused');
+function highlightSymbol() {
+  let elem = document.activeElement;
+  inputSymbols.forEach(symbol => {
+    symbol.classList.remove('focused');
+  });
+  if (elem.classList.contains('num-input')) {
+    elem.previousElementSibling.classList.add('focused');
   };
+};
 
-  if ((!e.target.classList.contains('num-input'))) {
-    inputSymbols.forEach(item => {
-      item.classList.remove('focused');
-    });
-  } else if (check) {
-    inputSymbols.forEach(item => {
-      item.classList.remove('focused');
-    });
-    e.target.previousSibling.previousSibling.classList.add('focused');
-  } else {
-    e.target.previousSibling.previousSibling.classList.add('focused');
-  }
-});
+document.addEventListener('click', highlightSymbol);
+document.addEventListener('keyup', highlightSymbol)
+
+
