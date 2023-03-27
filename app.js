@@ -84,6 +84,23 @@ function loadQuote() {
 }
 loadQuote();
 
+// Highlight input field symbols
+
+const inputSymbols = document.querySelectorAll('.input-symbol');
+
+function highlightSymbol() {
+  let elem = document.activeElement;
+  inputSymbols.forEach(symbol => {
+    symbol.classList.remove('focused');
+  });
+  if (elem.classList.contains('num-input')) {
+    elem.previousElementSibling.classList.add('focused');
+  };
+};
+
+document.addEventListener('click', highlightSymbol);
+document.addEventListener('keyup', highlightSymbol);
+
 // CALCULATOR
 const endBalance = document.getElementById("end-balance");
 const totalContribs = document.getElementById("total-contribs");
@@ -162,46 +179,29 @@ function checkValues() {
     return years < 0.08 || years > 100 ? false : true;
   }
 
-  if (!checkDollar(p.value)) {
-    document.getElementById('p-error').classList.add('display-error')
-  } else {
-    document.getElementById('p-error').classList.remove('display-error')
-  }
-  if (!checkRate(r.value)) {
-    document.getElementById('r-error').classList.add('display-error')
-  } else {
-    document.getElementById('r-error').classList.remove('display-error')
-  }
-  if (!checkDollar(mc.value)) {
-    document.getElementById('mc-error').classList.add('display-error')
-  } else {
-    document.getElementById('mc-error').classList.remove('display-error')
-  }
-  if (!checkYears(t.value)) {
-    document.getElementById('t-error').classList.add('display-error')
-  } else {
-    document.getElementById('t-error').classList.remove('display-error')
-  }
   if (checkDollar(p.value) && checkRate(r.value) && checkDollar(mc.value) && checkYears(t.value)) {
     return true;
   } else {
+    if (!checkDollar(p.value)) {
+      document.getElementById('p-error').classList.add('display-error')
+    } else {
+      document.getElementById('p-error').classList.remove('display-error')
+    }
+    if (!checkRate(r.value)) {
+      document.getElementById('r-error').classList.add('display-error')
+    } else {
+      document.getElementById('r-error').classList.remove('display-error')
+    }
+    if (!checkDollar(mc.value)) {
+      document.getElementById('mc-error').classList.add('display-error')
+    } else {
+      document.getElementById('mc-error').classList.remove('display-error')
+    }
+    if (!checkYears(t.value)) {
+      document.getElementById('t-error').classList.add('display-error')
+    } else {
+      document.getElementById('t-error').classList.remove('display-error')
+    }
     return false;
-  }
-}
-
-const inputSymbols = document.querySelectorAll('.input-symbol');
-
-function highlightSymbol() {
-  let elem = document.activeElement;
-  inputSymbols.forEach(symbol => {
-    symbol.classList.remove('focused');
-  });
-  if (elem.classList.contains('num-input')) {
-    elem.previousElementSibling.classList.add('focused');
   };
 };
-
-document.addEventListener('click', highlightSymbol);
-document.addEventListener('keyup', highlightSymbol)
-
-
