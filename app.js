@@ -102,18 +102,64 @@ document.addEventListener('click', highlightSymbol);
 document.addEventListener('keyup', highlightSymbol);
 
 // CALCULATOR
+const pInput = document.getElementById('p');
+const rInput = document.getElementById('r');
+const mcInput = document.getElementById('mc');
+const tInput = document.getElementById('t');
 const endBalance = document.getElementById("end-balance");
 const totalContribs = document.getElementById("total-contribs");
 const totalInterest = document.getElementById("total-interest");
 const calcBtn = document.getElementById("calc-btn");
 
+function checkValues() {
+
+  function checkDollar(amount) {
+      return amount < 0 || amount > 1000000 ? false : true;
+  }
+  
+  function checkRate(rate) {
+    return rate < 0.01 || rate > 100 ? false : true;
+  }
+  
+  function checkYears(years) {
+    return years < 0.08 || years > 100 ? false : true;
+  }
+
+  if (checkDollar(pInput.value) && checkRate(rInput.value) && checkDollar(mcInput.value) && checkYears(tInput.value)) {
+    return true;
+  } else {
+    if (!checkDollar(pInput.value)) {
+      document.getElementById('p-error').classList.add('display-error')
+    } else {
+      document.getElementById('p-error').classList.remove('display-error')
+    }
+    if (!checkRate(rInput.value)) {
+      document.getElementById('r-error').classList.add('display-error')
+    } else {
+      document.getElementById('r-error').classList.remove('display-error')
+    }
+    if (!checkDollar(mcInput.value)) {
+      document.getElementById('mc-error').classList.add('display-error')
+    } else {
+      document.getElementById('mc-error').classList.remove('display-error')
+    }
+    if (!checkYears(tInput.value)) {
+      document.getElementById('t-error').classList.add('display-error')
+    } else {
+      document.getElementById('t-error').classList.remove('display-error')
+    }
+    return false;
+  };
+};
+
 function calc() {
-  let p = document.getElementById("p").value;
-  let r = document.getElementById("r").value / 100; //Converts to decimal
+  
+  let p = pInput.value;
+  let r = rInput.value / 100; //Converts to decimal
   // let n = document.getElementById("n").value;
   let n = 12;
-  let t = document.getElementById("t").value;
-  let mc = document.getElementById("mc").value;
+  let mc = mcInput.value;
+  let t = tInput.value;
   
   function addCommas(num) {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -157,51 +203,4 @@ document.addEventListener("keypress", function(e) {
   if (e.key === "Enter") {
     calc();
   }
-})
-
-// INPUT VALIDATIONS
-const p = document.getElementById('p');
-const r = document.getElementById('r');
-const mc = document.getElementById('mc');
-const t = document.getElementById('t');
-
-function checkValues() {
-
-  function checkDollar(amount) {
-      return amount < 0 || amount > 1000000 ? false : true;
-  }
-  
-  function checkRate(rate) {
-    return rate < 0.01 || rate > 100 ? false : true;
-  }
-  
-  function checkYears(years) {
-    return years < 0.08 || years > 100 ? false : true;
-  }
-
-  if (checkDollar(p.value) && checkRate(r.value) && checkDollar(mc.value) && checkYears(t.value)) {
-    return true;
-  } else {
-    if (!checkDollar(p.value)) {
-      document.getElementById('p-error').classList.add('display-error')
-    } else {
-      document.getElementById('p-error').classList.remove('display-error')
-    }
-    if (!checkRate(r.value)) {
-      document.getElementById('r-error').classList.add('display-error')
-    } else {
-      document.getElementById('r-error').classList.remove('display-error')
-    }
-    if (!checkDollar(mc.value)) {
-      document.getElementById('mc-error').classList.add('display-error')
-    } else {
-      document.getElementById('mc-error').classList.remove('display-error')
-    }
-    if (!checkYears(t.value)) {
-      document.getElementById('t-error').classList.add('display-error')
-    } else {
-      document.getElementById('t-error').classList.remove('display-error')
-    }
-    return false;
-  };
-};
+});
