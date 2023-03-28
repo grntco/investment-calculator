@@ -1,4 +1,4 @@
-#Long-Term Games Investment Calculator
+# Long-Term Games Investment Calculator
 
 This is one of my first project ideas when I first learned to code.
 
@@ -8,4 +8,5 @@ So, this project is my solution: a well-designed, single-purpose investment calc
 
 The design is heavily inspired from the artwork of Visualize Value (visualizevalue.com), which I first came across while reading the Almanack of Naval Ravikant. Speaking of Naval, I thought it would be a fun challenge to populate a random quote about long-term thinking/compound interest whenever the page is loaded.
 
-Live demo: 
+### Live demo:
+https://grntco.github.io/investment-calculator/
