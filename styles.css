@@ -82,6 +82,7 @@ body {
     width: 80%;
     grid-template-columns: repeat(auto-fit, minmax(472px, 1fr));
     align-content: center;
+    overflow-x: hidden;
 }
 
 .calc-container, .results-container {
