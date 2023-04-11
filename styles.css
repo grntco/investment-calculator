@@ -209,12 +209,39 @@ select[name="n"] {
         padding: 0px;
     }
 
+    .quote-container {
+        width: 100%;
+    }
+
     .main-content {
         width: 100%;
     }
 
     .calc-container, .results-container {
         width: 100%;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .header h1 {
+        font-size: 1.8rem;
+    }
+
+    .main-content {
+        /* width: 100vw; */
+        /* grid-template-columns: 1fr; */
+    }
+
+    .calc-container, .results-container {
+        padding: 8px;
+    }
+
+    .input-item {
+        /* justify-content: start; */
+    }
+
+    h2 {
+        font-size: 1.5rem;
     }
 }
 
