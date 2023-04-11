@@ -223,6 +223,10 @@ select[name="n"] {
 }
 
 @media only screen and (max-width: 480px) {
+    .input-symbol {
+        display: none;
+    }
+
     .header h1 {
         font-size: 1.8rem;
     }
